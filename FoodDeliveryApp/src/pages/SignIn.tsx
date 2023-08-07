@@ -1,6 +1,6 @@
-import {View, Text, TextInput, Pressable, Alert} from 'react-native';
-import React, {useCallback, useState} from 'react';
-import tw from 'twrnc';
+import { View, Text, TextInput, Pressable, Alert } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import tw from '@/style';
 
 export default function SignIn() {
   const onSubmit = useCallback(() => {
@@ -12,27 +12,27 @@ export default function SignIn() {
 
   const canGoNext = email && password;
 
-  const loginButton = tw`rounded-2 py-4 px-10 ${
-    canGoNext ? `bg-blue-500` : `bg-gray-500`
-  }`;
+  const loginButton = tw`rounded-2 py-4 px-10 ${canGoNext ? `bg-blue-500` : `bg-gray-500`}`;
 
   const buttonText = tw`text-white text-center`;
-  const inputLabel = tw`font-medium`;
+  const inputLabel = tw`font-medium text-12 text-primary`;
 
   return (
-    <View>
-      <View>
+    <View style={tw`p-5 flex gap-6`}>
+      <View style={tw`flex gap-2`}>
         <Text style={inputLabel}>이메일</Text>
         <TextInput
-          placeholder="이메일을 입력해주세요."
+          style={tw`pb-2 text-4 border-b border-[#Dfdfdf]`}
+          placeholder='이메일을 입력해주세요.'
           onChangeText={text => setEmail(text)}
         />
       </View>
-      <View>
-        <Text style={inputLabel}>비밀번호</Text>
+      <View style={tw`flex gap-2`}>
+        <Text style={inputLabel}>이메일</Text>
         <TextInput
-          placeholder="비밀번호를 입력해주세요."
-          onChangeText={text => setPassword(text)}
+          style={tw`pb-2 text-4 border-b border-[#Dfdfdf]`}
+          placeholder='이메일을 입력해주세요.'
+          onChangeText={text => setEmail(text)}
         />
       </View>
       <View style={tw`flex gap-4 items-center`}>
