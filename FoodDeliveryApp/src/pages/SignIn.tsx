@@ -49,7 +49,6 @@ export default function SignIn({ navigation }: SignInScreenProps) {
         }),
       );
       await EncryptedStorage.setItem('refreshToken', response.data.data.refreshToken);
-      setLoading(false);
     } catch (error) {
       const errorResponse = (error as AxiosError).response;
       if (errorResponse) {
